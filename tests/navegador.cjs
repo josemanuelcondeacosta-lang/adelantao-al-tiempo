@@ -27,33 +27,33 @@ const pause = ms => new Promise(r => setTimeout(r, ms));
       await send('Emulation.setDeviceMetricsOverride', { width, height: 900, deviceScaleFactor: 1, mobile: width < 500 });
       for (const page of ['adelantao-inicio.dc.html','adelantao-zapatos.dc.html','adelantao-chancletas.dc.html']) {
         await nav(page);
-        await wait(`(()=>{${query}return scope.querySelectorAll('.ad-product').length > 0;})()`);
-        const result = await evaluate(`(()=>{${query}return {cards:scope.querySelectorAll('.ad-product').length, overflow:document.documentElement.scrollWidth > innerWidth+1, broken:[...scope.querySelectorAll('img')].filter(i=>i.complete&&!i.naturalWidth).map(i=>i.src)};})()`);
+        await wait(`(()=>{${query}return scope.querySelectorAll('.at-product').length > 0;})()`);
+        const result = await evaluate(`(()=>{${query}return {cards:scope.querySelectorAll('.at-product').length, overflow:document.documentElement.scrollWidth > innerWidth+1, broken:[...scope.querySelectorAll('img')].filter(i=>i.complete&&!i.naturalWidth).map(i=>i.src)};})()`);
         assert.equal(result.overflow, false, page + ' desborda ' + width); assert.deepEqual(result.broken, []);
         console.log(width, page, result.cards, 'tarjetas OK');
         if (page !== 'adelantao-inicio.dc.html') {
           await evaluate(`(()=>{${query}const field=scope.querySelector('input[type=search]');field.value='zzzinexistente';field.dispatchEvent(new Event('input',{bubbles:true}));})()`);
-          await wait(`!!document.querySelector('.ad-empty')`);
-          await evaluate(`document.querySelector('.ad-empty button').click()`);
-          await wait(`document.querySelectorAll('.ad-product').length === ${result.cards}`);
+          await wait(`!!document.querySelector('.at-empty')`);
+          await evaluate(`document.querySelector('.at-empty button').click()`);
+          await wait(`document.querySelectorAll('.at-product').length === ${result.cards}`);
         }
       }
     }
     await nav('adelantao-producto.dc.html?p=adidas-adilette-comfort-7-colores');
-    await wait(`(()=>{${query}return scope.querySelectorAll('.ad-swatch').length===7;})()`);
-    await evaluate(`(()=>{${query}scope.querySelector('.ad-swatch').click();})()`); await pause(200);
+    await wait(`(()=>{${query}return scope.querySelectorAll('.at-swatch').length===7;})()`);
+    await evaluate(`(()=>{${query}scope.querySelector('.at-swatch').click();})()`); await pause(200);
     await evaluate(`(()=>{${query}[...scope.querySelectorAll('button')].find(b=>b.textContent.includes('Añadir al pedido')).click();})()`);
     await nav('adelantao-carrito.dc.html');
-    await wait(`(()=>{${query}return scope.querySelector('.ad-line');})()`);
-    const order = await evaluate(`(()=>{${query}return {href:scope.querySelector('.ad-summary a').href,text:scope.querySelector('textarea').value};})()`);
+    await wait(`(()=>{${query}return scope.querySelector('.at-line');})()`);
+    const order = await evaluate(`(()=>{${query}return {href:scope.querySelector('.at-summary a').href,text:scope.querySelector('textarea').value};})()`);
     assert.equal(new URL(order.href).searchParams.get('text'), order.text);
     assert.match(order.text, /Azul rey/);
-    await evaluate(`document.querySelector('.ad-qty button:last-child').click()`);
+    await evaluate(`document.querySelector('.at-qty button:last-child').click()`);
     await wait(`document.querySelector('textarea').value.includes('cantidad 2')`);
     await evaluate(`(()=>{const key='adelantao-zapatos-carrito';const items=JSON.parse(localStorage.getItem(key));items[0].cantidad=3;localStorage.setItem(key,JSON.stringify(items));window.dispatchEvent(new StorageEvent('storage',{key}));})()`);
     await wait(`document.querySelector('textarea').value.includes('cantidad 3')`);
-    await evaluate(`(()=>{${query}scope.querySelector('.ad-clear').click();})()`);
-    await wait(`(()=>{${query}return !!scope.querySelector('.ad-empty-cart');})()`);
+    await evaluate(`(()=>{${query}scope.querySelector('.at-clear').click();})()`);
+    await wait(`(()=>{${query}return !!scope.querySelector('.at-empty-cart');})()`);
     assert.deepEqual(errors, []);
     console.log('OK: navegador, móvil/escritorio, color, añadir, WhatsApp, vaciar y sin excepciones.');
   } finally { socket.close(); }

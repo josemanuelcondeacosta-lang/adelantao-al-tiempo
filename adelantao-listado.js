@@ -14,7 +14,7 @@ export function tarjeta(p, React) {
   return {
     ...p,
     href: "adelantao-producto.dc.html?p=" + p.id,
-    priceCls: precioNum(p.price) !== null ? "ad-price" : "ad-price ad-price-tbc",
+    priceCls: precioNum(p.price) !== null ? "at-price" : "at-price at-price-tbc",
     sizesLabel: etiquetaTallas(p),
     noImg: !p.img,
     media: p.img ? React.createElement("img", { src: p.img, alt: p.name, loading: "lazy", decoding: "async", width: 800, height: 800 }) : null

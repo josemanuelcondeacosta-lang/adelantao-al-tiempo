@@ -18,94 +18,94 @@
 <helmet><link rel="stylesheet" href="adelantao-tienda.css"></helmet>
 
 <sc-if value="{{ noti }}" hint-placeholder-val="{{ false }}">
-  <div class="ad-toast" role="status">
-    <span class="ad-toast-ic"><span class="ico ico-check"></span></span>
-    <div class="ad-toast-body"><b>{{ notiTitulo }}</b><span>{{ notiTexto }}</span><a href="adelantao-carrito.dc.html">Ver mi pedido <span class="ico ico-r"></span></a></div>
-    <button type="button" class="ad-toast-close" onClick="{{ cerrarNoti }}" aria-label="Cerrar"><span class="ico ico-x"></span></button>
+  <div class="at-toast" role="status">
+    <span class="at-toast-ic"><span class="ico ico-check"></span></span>
+    <div class="at-toast-body"><b>{{ notiTitulo }}</b><span>{{ notiTexto }}</span><a href="adelantao-carrito.dc.html">Ver mi pedido <span class="ico ico-r"></span></a></div>
+    <button type="button" class="at-toast-close" onClick="{{ cerrarNoti }}" aria-label="Cerrar"><span class="ico ico-x"></span></button>
   </div>
 </sc-if>
 
-<div class="ad-announcement">Envíos a toda Colombia <span>✦</span> El tiempo es dinero</div>
-<header class="ad-header"><div class="wrap ad-header-in">
-  <a class="ad-brand" href="adelantao-inicio.dc.html" aria-label="Adelanta’o al Tiempo, inicio"><img src="assets/logo-adelantao.jpeg" alt="" width="52" height="52"><span>ADELANTA’O<small>AL TIEMPO</small></span></a>
+<div class="at-announcement">Envíos a toda Colombia <span>✦</span> El tiempo es dinero</div>
+<header class="at-header"><div class="wrap at-header-in">
+  <a class="at-brand" href="adelantao-inicio.dc.html" aria-label="Adelanta’o al Tiempo, inicio"><img src="assets/logo-adelantao.jpeg" alt="" width="52" height="52"><span>ADELANTA’O<small>AL TIEMPO</small></span></a>
   <nav aria-label="Navegación principal"><a href="adelantao-inicio.dc.html">Inicio</a><a href="adelantao-zapatos.dc.html">Zapatos</a><a href="adelantao-chancletas.dc.html">Chancletas</a></nav>
-  <a class="ad-cart" href="adelantao-carrito.dc.html" aria-label="Mi pedido"><span class="ad-cart-label">Mi pedido</span><span class="ad-cart-count" data-cart-count></span></a>
+  <a class="at-cart" href="adelantao-carrito.dc.html" aria-label="Mi pedido"><span class="at-cart-label">Mi pedido</span><span class="at-cart-count" data-cart-count></span></a>
 </div></header>
 
 <main>
 <div class="wrap">
-  <nav class="ad-crumbs" aria-label="Ruta" style="padding-top:clamp(20px,3vw,36px);margin-bottom:clamp(16px,2.4vw,28px)"><a href="adelantao-inicio.dc.html">Inicio</a><span class="sep">/</span><a href="{{ seccionHref }}">{{ seccion }}</a><span class="sep">/</span><span>{{ nombre }}</span></nav>
+  <nav class="at-crumbs" aria-label="Ruta" style="padding-top:clamp(20px,3vw,36px);margin-bottom:clamp(16px,2.4vw,28px)"><a href="adelantao-inicio.dc.html">Inicio</a><span class="sep">/</span><a href="{{ seccionHref }}">{{ seccion }}</a><span class="sep">/</span><span>{{ nombre }}</span></nav>
 
-  <section class="ad-pdp">
-    <div class="ad-gallery">
-      <div class="ad-gallery-main">
-        <span class="ad-tag">Línea 1.1</span>
+  <section class="at-pdp">
+    <div class="at-gallery">
+      <div class="at-gallery-main">
+        <span class="at-tag">Línea 1.1</span>
         <sc-if value="{{ imagen }}" hint-placeholder-val="{{ false }}">{{ imagen }}</sc-if>
         <sc-if value="{{ tieneCarrusel }}" hint-placeholder-val="{{ false }}">
-          <button type="button" class="ad-gallery-nav prev" onClick="{{ anterior }}" aria-label="Foto anterior"><span class="ico ico-l"></span></button>
-          <button type="button" class="ad-gallery-nav next" onClick="{{ siguiente }}" aria-label="Foto siguiente"><span class="ico ico-r"></span></button>
+          <button type="button" class="at-gallery-nav prev" onClick="{{ anterior }}" aria-label="Foto anterior"><span class="ico ico-l"></span></button>
+          <button type="button" class="at-gallery-nav next" onClick="{{ siguiente }}" aria-label="Foto siguiente"><span class="ico ico-r"></span></button>
         </sc-if>
       </div>
       <sc-if value="{{ tieneCarrusel }}" hint-placeholder-val="{{ false }}">
-        <div class="ad-thumbs"><sc-for list="{{ miniaturas }}" as="t" hint-placeholder-count="0"><button type="button" class="{{ t.cls }}" onClick="{{ t.go }}" aria-label="{{ t.label }}">{{ t.media }}</button></sc-for></div>
+        <div class="at-thumbs"><sc-for list="{{ miniaturas }}" as="t" hint-placeholder-count="0"><button type="button" class="{{ t.cls }}" onClick="{{ t.go }}" aria-label="{{ t.label }}">{{ t.media }}</button></sc-for></div>
       </sc-if>
     </div>
 
-    <div class="ad-info">
-      <p class="ad-eyebrow">{{ seccion }}</p>
+    <div class="at-info">
+      <p class="at-eyebrow">{{ seccion }}</p>
       <h1>{{ nombre }}</h1>
-      <div class="ad-info-price"><span class="{{ precioCls }}">{{ precio }}</span><small>{{ precioNota }}</small></div>
-      <p class="ad-info-desc">{{ descripcion }}</p>
+      <div class="at-info-price"><span class="{{ precioCls }}">{{ precio }}</span><small>{{ precioNota }}</small></div>
+      <p class="at-info-desc">{{ descripcion }}</p>
 
       <sc-if value="{{ tieneColores }}" hint-placeholder-val="{{ false }}">
-        <div class="ad-opt">
-          <p class="ad-opt-label">Color <span>{{ colorLabel }}</span></p>
-          <div class="ad-swatches"><sc-for list="{{ colores }}" as="c" hint-placeholder-count="4"><button type="button" class="{{ c.cls }}" style="{{ c.style }}" onClick="{{ c.select }}" title="{{ c.name }}" aria-label="{{ c.name }}"></button></sc-for></div>
+        <div class="at-opt">
+          <p class="at-opt-label">Color <span>{{ colorLabel }}</span></p>
+          <div class="at-swatches"><sc-for list="{{ colores }}" as="c" hint-placeholder-count="4"><button type="button" class="{{ c.cls }}" style="{{ c.style }}" onClick="{{ c.select }}" title="{{ c.name }}" aria-label="{{ c.name }}"></button></sc-for></div>
         </div>
       </sc-if>
 
       <sc-if value="{{ tieneTallas }}" hint-placeholder-val="{{ true }}">
-        <div class="ad-opt">
-          <p class="ad-opt-label">Talla <span>Tallas 38 a 42</span></p>
-          <div class="ad-sizes"><sc-for list="{{ tallas }}" as="t" hint-placeholder-count="5"><button type="button" class="{{ t.cls }}" onClick="{{ t.select }}" aria-pressed="{{ t.on }}">{{ t.label }}</button></sc-for></div>
+        <div class="at-opt">
+          <p class="at-opt-label">Talla <span>Tallas 38 a 42</span></p>
+          <div class="at-sizes"><sc-for list="{{ tallas }}" as="t" hint-placeholder-count="5"><button type="button" class="{{ t.cls }}" onClick="{{ t.select }}" aria-pressed="{{ t.on }}">{{ t.label }}</button></sc-for></div>
         </div>
       </sc-if>
 
-      <div class="ad-buy">
-        <div class="ad-qty" role="group" aria-label="Cantidad"><button type="button" onClick="{{ menos }}" aria-label="Quitar una unidad">−</button><span>{{ cantidad }}</span><button type="button" onClick="{{ mas }}" aria-label="Agregar una unidad">+</button></div>
-        <button type="button" class="ad-button" onClick="{{ agregar }}"><span class="ico ico-bag"></span> {{ botonLabel }}</button>
+      <div class="at-buy">
+        <div class="at-qty" role="group" aria-label="Cantidad"><button type="button" onClick="{{ menos }}" aria-label="Quitar una unidad">−</button><span>{{ cantidad }}</span><button type="button" onClick="{{ mas }}" aria-label="Agregar una unidad">+</button></div>
+        <button type="button" class="at-button" onClick="{{ agregar }}"><span class="ico ico-bag"></span> {{ botonLabel }}</button>
       </div>
-      <a class="ad-ask" href="https://wa.me/message/QQ35ZM7DGCIPA1" target="_blank" rel="noopener"><span class="ico ico-chat"></span> Preguntar por este modelo</a>
+      <a class="at-ask" href="https://wa.me/message/QQ35ZM7DGCIPA1" target="_blank" rel="noopener"><span class="ico ico-chat"></span> Preguntar por este modelo</a>
 
-      <div class="ad-assure">
+      <div class="at-assure">
         <div><span class="ico ico-truck"></span><span>Enviamos a toda Colombia. El valor del envío se confirma por WhatsApp.</span></div>
         <div><span class="ico ico-shield"></span><span>Confirmamos disponibilidad y precio final antes de que pagues.</span></div>
       </div>
 
-      <div class="ad-acc">
+      <div class="at-acc">
         <sc-for list="{{ secciones }}" as="s" hint-placeholder-count="3">
-          <div class="ad-acc-item">
+          <div class="at-acc-item">
             <button type="button" class="{{ s.cls }}" onClick="{{ s.toggle }}" aria-expanded="{{ s.abierta }}">{{ s.titulo }}<span class="ico ico-down"></span></button>
-            <sc-if value="{{ s.abierta }}" hint-placeholder-val="{{ false }}"><p class="ad-acc-text">{{ s.texto }}</p></sc-if>
+            <sc-if value="{{ s.abierta }}" hint-placeholder-val="{{ false }}"><p class="at-acc-text">{{ s.texto }}</p></sc-if>
           </div>
         </sc-for>
       </div>
     </div>
   </section>
 
-  <section class="ad-section" style="padding-top:0">
-    <div class="ad-head"><div><p class="ad-eyebrow">Sigue explorando</p><h2>También te<br>puede gustar.</h2></div><a class="ad-text-link" href="{{ seccionHref }}">Ver todo <span class="ico ico-ur"></span></a></div>
-    <div class="ad-products"><sc-for list="{{ relacionados }}" as="r" hint-placeholder-count="4"><a class="ad-product" href="{{ r.href }}"><div class="ad-product-image">{{ r.media }}<span class="ad-tag">Línea 1.1</span><span class="ad-product-go"><span class="ico ico-ur"></span></span></div><div class="ad-product-info"><h3>{{ r.name }}</h3><div class="ad-product-foot"><span class="{{ r.priceCls }}">{{ r.price }}</span><span class="ad-product-sizes">{{ r.sizesLabel }}</span></div></div></a></sc-for></div>
+  <section class="at-section" style="padding-top:0">
+    <div class="at-head"><div><p class="at-eyebrow">Sigue explorando</p><h2>También te<br>puede gustar.</h2></div><a class="at-text-link" href="{{ seccionHref }}">Ver todo <span class="ico ico-ur"></span></a></div>
+    <div class="at-products"><sc-for list="{{ relacionados }}" as="r" hint-placeholder-count="4"><a class="at-product" href="{{ r.href }}"><div class="at-product-image">{{ r.media }}<span class="at-tag">Línea 1.1</span><span class="at-product-go"><span class="ico ico-ur"></span></span></div><div class="at-product-info"><h3>{{ r.name }}</h3><div class="at-product-foot"><span class="{{ r.priceCls }}">{{ r.price }}</span><span class="at-product-sizes">{{ r.sizesLabel }}</span></div></div></a></sc-for></div>
   </section>
 </div>
 </main>
 
-<footer class="ad-footer"><div class="wrap"><div class="ad-footer-in">
-  <div class="ad-footer-brand"><a class="ad-brand" href="adelantao-inicio.dc.html"><img src="assets/logo-adelantao.jpeg" alt="Logo Adelanta’o al Tiempo" width="64" height="64"><span>ADELANTA’O<small>AL TIEMPO</small></span></a><p>El tiempo es dinero.<br>El estilo se lleva en cada paso.</p></div>
-  <div class="ad-footer-links"><h3>Explora</h3><a href="adelantao-zapatos.dc.html">Zapatos</a><a href="adelantao-chancletas.dc.html">Chancletas</a><a href="adelantao-carrito.dc.html">Mi pedido</a><a href="https://wa.me/message/QQ35ZM7DGCIPA1" target="_blank" rel="noopener">WhatsApp <span class="ico ico-ur"></span></a></div>
+<footer class="at-footer"><div class="wrap"><div class="at-footer-in">
+  <div class="at-footer-brand"><a class="at-brand" href="adelantao-inicio.dc.html"><img src="assets/logo-adelantao.jpeg" alt="Logo Adelanta’o al Tiempo" width="64" height="64"><span>ADELANTA’O<small>AL TIEMPO</small></span></a><p>El tiempo es dinero.<br>El estilo se lleva en cada paso.</p></div>
+  <div class="at-footer-links"><h3>Explora</h3><a href="adelantao-zapatos.dc.html">Zapatos</a><a href="adelantao-chancletas.dc.html">Chancletas</a><a href="adelantao-carrito.dc.html">Mi pedido</a><a href="https://wa.me/message/QQ35ZM7DGCIPA1" target="_blank" rel="noopener">WhatsApp <span class="ico ico-ur"></span></a></div>
   <div><h3>Antes de pedir</h3><p>Estilos deportivos y urbanos para combinar a tu manera.</p><p>Confirmamos talla, disponibilidad y envío por WhatsApp antes de pagar.</p></div>
-</div><div class="ad-copyright"><div>© 2026 Adelanta’o al Tiempo</div><span>UN PASO ADELANTE.</span></div></div></footer>
-<a class="ad-fab" href="https://wa.me/message/QQ35ZM7DGCIPA1" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><span class="ico ico-chat"></span></a>
+</div><div class="at-copyright"><div>© 2026 Adelanta’o al Tiempo</div><span>UN PASO ADELANTE.</span></div></div></footer>
+<a class="at-fab" href="https://wa.me/message/QQ35ZM7DGCIPA1" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><span class="ico ico-chat"></span></a>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: 1440}}">
 class Component extends DCLogic {
@@ -153,7 +153,7 @@ class Component extends DCLogic {
       seccion,
       seccionHref: esChancla ? "adelantao-chancletas.dc.html" : "adelantao-zapatos.dc.html",
       precio: p ? (p.price || "A cotizar") : "",
-      precioCls: conPrecio ? "ad-price" : "ad-price ad-price-tbc",
+      precioCls: conPrecio ? "at-price" : "at-price at-price-tbc",
       precioNota: conPrecio ? "por par" : "",
       descripcion: p ? p.meta : "",
       secciones: [
@@ -163,7 +163,7 @@ class Component extends DCLogic {
       ].map(([titulo, texto], i) => ({
         titulo, texto,
         abierta: !!this.state.abiertas[i],
-        cls: "ad-acc-btn" + (this.state.abiertas[i] ? " is-open" : ""),
+        cls: "at-acc-btn" + (this.state.abiertas[i] ? " is-open" : ""),
         toggle: () => this.setState(s => ({ abiertas: { ...s.abiertas, [i]: !s.abiertas[i] } }))
       })),
       tieneCarrusel,
@@ -171,7 +171,7 @@ class Component extends DCLogic {
       siguiente: () => this.setState(s => ({ foto: (s.foto + 1) % fotos.length })),
       miniaturas: (tieneCarrusel ? fotos : []).map((f, i) => ({
         label: "Ver foto " + (i + 1),
-        cls: "ad-thumb" + (i === idx ? " is-on" : ""),
+        cls: "at-thumb" + (i === idx ? " is-on" : ""),
         go: () => this.setState({ foto: i }),
         media: React.createElement("img", { src: f, alt: "", loading: "lazy", decoding: "async" })
       })),
@@ -189,14 +189,14 @@ class Component extends DCLogic {
       colores: (p && p.colors ? p.colors : []).map(c => ({
         name: c.name,
         style: "background:" + c.hex,
-        cls: "ad-swatch" + (color && color.name === c.name ? " is-on" : ""),
+        cls: "at-swatch" + (color && color.name === c.name ? " is-on" : ""),
         select: () => this.setState({ color: c, foto: 0 })
       })),
       tieneTallas: !!(p && p.sizes),
       tallas: (p && p.sizes ? p.sizes : []).map(t => ({
         label: t,
         on: t === talla,
-        cls: "ad-size" + (t === talla ? " is-on" : ""),
+        cls: "at-size" + (t === talla ? " is-on" : ""),
         select: () => this.setState({ talla: t })
       })),
       cantidad: this.state.cantidad,

@@ -22,7 +22,7 @@ function cantidadValida(value) {
 }
 function guardar(items) {
   localStorage.setItem(KEY, JSON.stringify(items));
-  window.dispatchEvent(new Event("ad-legacy-carrito"));
+  window.dispatchEvent(new Event("at-legacy-carrito"));
   return items;
 }
 export function agregar(item) {

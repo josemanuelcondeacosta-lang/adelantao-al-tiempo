@@ -21,7 +21,7 @@
     });
   }
   pintar();
-  window.addEventListener("ad-legacy-carrito", pintar);
+  window.addEventListener("at-legacy-carrito", pintar);
   window.addEventListener("storage", pintar);
   window.addEventListener("pageshow", pintar);
   // El contenido se dibuja después de cargar; reintenta hasta que exista el encabezado.

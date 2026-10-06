@@ -16,77 +16,77 @@
 <body>
 <x-dc>
 <helmet><link rel="stylesheet" href="adelantao-tienda.css"></helmet>
-<div class="ad-announcement">Envíos a toda Colombia <span>✦</span> El tiempo es dinero</div>
-<header class="ad-header"><div class="wrap ad-header-in">
-  <a class="ad-brand" href="adelantao-inicio.dc.html" aria-label="Adelanta’o al Tiempo, inicio"><img src="assets/logo-adelantao.jpeg" alt="" width="52" height="52"><span>ADELANTA’O<small>AL TIEMPO</small></span></a>
+<div class="at-announcement">Envíos a toda Colombia <span>✦</span> El tiempo es dinero</div>
+<header class="at-header"><div class="wrap at-header-in">
+  <a class="at-brand" href="adelantao-inicio.dc.html" aria-label="Adelanta’o al Tiempo, inicio"><img src="assets/logo-adelantao.jpeg" alt="" width="52" height="52"><span>ADELANTA’O<small>AL TIEMPO</small></span></a>
   <nav aria-label="Navegación principal"><a href="adelantao-inicio.dc.html">Inicio</a><a href="adelantao-zapatos.dc.html">Zapatos</a><a href="adelantao-chancletas.dc.html">Chancletas</a></nav>
-  <a class="ad-cart" href="adelantao-carrito.dc.html" aria-label="Mi pedido" aria-current="page"><span class="ad-cart-label">Mi pedido</span><span class="ad-cart-count" data-cart-count></span></a>
+  <a class="at-cart" href="adelantao-carrito.dc.html" aria-label="Mi pedido" aria-current="page"><span class="at-cart-label">Mi pedido</span><span class="at-cart-count" data-cart-count></span></a>
 </div></header>
 
-<main class="ad-cart-page"><div class="wrap">
-  <nav class="ad-crumbs" aria-label="Ruta"><a href="adelantao-inicio.dc.html">Inicio</a><span class="sep">/</span><span>Mi pedido</span></nav>
-  <div class="ad-pagehead-row" style="align-items:flex-end">
-    <h1 style="font-size:clamp(42px,6vw,84px);letter-spacing:-.055em;line-height:.94">Tu <span class="ad-hl">pedido</span></h1>
+<main class="at-cart-page"><div class="wrap">
+  <nav class="at-crumbs" aria-label="Ruta"><a href="adelantao-inicio.dc.html">Inicio</a><span class="sep">/</span><span>Mi pedido</span></nav>
+  <div class="at-pagehead-row" style="align-items:flex-end">
+    <h1 style="font-size:clamp(42px,6vw,84px);letter-spacing:-.055em;line-height:.94">Tu <span class="at-hl">pedido</span></h1>
     <p style="max-width:340px;color:var(--muted)">{{ resumenLinea }}</p>
   </div>
 
   <sc-if value="{{ vacio }}" hint-placeholder-val="{{ false }}">
-    <div class="ad-empty-cart" style="margin-top:clamp(24px,3vw,40px)">
-      <span class="ad-empty-ic"><span class="ico ico-bag"></span></span>
+    <div class="at-empty-cart" style="margin-top:clamp(24px,3vw,40px)">
+      <span class="at-empty-ic"><span class="ico ico-bag"></span></span>
       <h2>Tu pedido está vacío</h2>
       <p>Todavía no has agregado nada. Encuentra el par que va contigo.</p>
-      <a class="ad-button" href="adelantao-zapatos.dc.html">Explorar zapatos <span class="ico ico-ur"></span></a>
+      <a class="at-button" href="adelantao-zapatos.dc.html">Explorar zapatos <span class="ico ico-ur"></span></a>
     </div>
   </sc-if>
 
   <sc-if value="{{ hayItems }}" hint-placeholder-val="{{ false }}">
-  <div class="ad-cart-layout">
-    <div class="ad-lines">
+  <div class="at-cart-layout">
+    <div class="at-lines">
       <sc-for list="{{ items }}" as="it" hint-placeholder-count="0">
-        <article class="ad-line">
-          <div class="ad-line-thumb">{{ it.media }}</div>
-          <div class="ad-line-info">
+        <article class="at-line">
+          <div class="at-line-thumb">{{ it.media }}</div>
+          <div class="at-line-info">
             <h3>{{ it.nombre }}</h3>
-            <div class="ad-line-meta"><sc-if value="{{ it.talla }}"><span>Talla {{ it.talla }}</span></sc-if><span>{{ it.precio }}</span></div>
-            <button type="button" class="ad-remove" onClick="{{ it.quitar }}"><span class="ico ico-trash"></span> Quitar</button>
+            <div class="at-line-meta"><sc-if value="{{ it.talla }}"><span>Talla {{ it.talla }}</span></sc-if><span>{{ it.precio }}</span></div>
+            <button type="button" class="at-remove" onClick="{{ it.quitar }}"><span class="ico ico-trash"></span> Quitar</button>
           </div>
-          <div class="ad-line-side">
-            <div class="ad-qty" role="group" aria-label="Cantidad"><button type="button" onClick="{{ it.menos }}" aria-label="Quitar una unidad">−</button><span>{{ it.cantidad }}</span><button type="button" onClick="{{ it.mas }}" aria-label="Agregar una unidad">+</button></div>
-            <span class="ad-line-total">{{ it.linea }}</span>
+          <div class="at-line-side">
+            <div class="at-qty" role="group" aria-label="Cantidad"><button type="button" onClick="{{ it.menos }}" aria-label="Quitar una unidad">−</button><span>{{ it.cantidad }}</span><button type="button" onClick="{{ it.mas }}" aria-label="Agregar una unidad">+</button></div>
+            <span class="at-line-total">{{ it.linea }}</span>
           </div>
         </article>
       </sc-for>
-      <a class="ad-text-link" style="align-self:flex-start;margin-top:10px" href="adelantao-zapatos.dc.html"><span class="ico ico-l"></span> Seguir explorando</a>
+      <a class="at-text-link" style="align-self:flex-start;margin-top:10px" href="adelantao-zapatos.dc.html"><span class="ico ico-l"></span> Seguir explorando</a>
     </div>
 
-    <aside class="ad-summary" aria-label="Resumen del pedido">
+    <aside class="at-summary" aria-label="Resumen del pedido">
       <h2>Resumen</h2>
-      <div class="ad-sum-rows">
+      <div class="at-sum-rows">
         <p><span>Productos</span><span>{{ unidades }}</span></p>
         <p><span>Con precio</span><span>{{ subtotal }}</span></p>
         <p><span>Por cotizar</span><span>{{ porCotizar }}</span></p>
         <p><span>Envío</span><span>Se confirma por WhatsApp</span></p>
       </div>
-      <div class="ad-sum-total"><span>Total con precio</span><b>{{ subtotal }}</b></div>
+      <div class="at-sum-total"><span>Total con precio</span><b>{{ subtotal }}</b></div>
 
-      <p class="ad-step">Revisa tu pedido</p>
+      <p class="at-step">Revisa tu pedido</p>
       <label class="sr-only" for="resumen-pedido">Resumen de tu pedido</label>
-      <textarea id="resumen-pedido" class="ad-order-box" readOnly="{{ true }}" value="{{ mensaje }}"></textarea>
-      <a class="ad-button ad-button-block" href="{{ enlace }}" target="_blank" rel="noopener"><span class="ico ico-chat"></span> Realizar pedido por WhatsApp</a>
-      <p class="ad-note">Tu pedido aparecerá escrito en WhatsApp. Solo pulsa Enviar para confirmarlo.</p>
-      <button type="button" class="ad-clear" onClick="{{ vaciar }}"><span class="ico ico-trash"></span> Vaciar pedido</button>
-      <p class="ad-status" role="status">{{ errorPedido }}</p>
-      <p class="ad-note">Confirmamos disponibilidad, precio final y valor del envío antes de que pagues.</p>
+      <textarea id="resumen-pedido" class="at-order-box" readOnly="{{ true }}" value="{{ mensaje }}"></textarea>
+      <a class="at-button at-button-block" href="{{ enlace }}" target="_blank" rel="noopener"><span class="ico ico-chat"></span> Realizar pedido por WhatsApp</a>
+      <p class="at-note">Tu pedido aparecerá escrito en WhatsApp. Solo pulsa Enviar para confirmarlo.</p>
+      <button type="button" class="at-clear" onClick="{{ vaciar }}"><span class="ico ico-trash"></span> Vaciar pedido</button>
+      <p class="at-status" role="status">{{ errorPedido }}</p>
+      <p class="at-note">Confirmamos disponibilidad, precio final y valor del envío antes de que pagues.</p>
     </aside>
   </div>
   </sc-if>
 </div></main>
 
-<footer class="ad-footer"><div class="wrap"><div class="ad-footer-in">
-  <div class="ad-footer-brand"><a class="ad-brand" href="adelantao-inicio.dc.html"><img src="assets/logo-adelantao.jpeg" alt="Logo Adelanta’o al Tiempo" width="64" height="64"><span>ADELANTA’O<small>AL TIEMPO</small></span></a><p>El tiempo es dinero.<br>El estilo se lleva en cada paso.</p></div>
-  <div class="ad-footer-links"><h3>Explora</h3><a href="adelantao-zapatos.dc.html">Zapatos</a><a href="adelantao-chancletas.dc.html">Chancletas</a><a href="adelantao-carrito.dc.html">Mi pedido</a><a href="https://wa.me/message/QQ35ZM7DGCIPA1" target="_blank" rel="noopener">WhatsApp <span class="ico ico-ur"></span></a></div>
+<footer class="at-footer"><div class="wrap"><div class="at-footer-in">
+  <div class="at-footer-brand"><a class="at-brand" href="adelantao-inicio.dc.html"><img src="assets/logo-adelantao.jpeg" alt="Logo Adelanta’o al Tiempo" width="64" height="64"><span>ADELANTA’O<small>AL TIEMPO</small></span></a><p>El tiempo es dinero.<br>El estilo se lleva en cada paso.</p></div>
+  <div class="at-footer-links"><h3>Explora</h3><a href="adelantao-zapatos.dc.html">Zapatos</a><a href="adelantao-chancletas.dc.html">Chancletas</a><a href="adelantao-carrito.dc.html">Mi pedido</a><a href="https://wa.me/message/QQ35ZM7DGCIPA1" target="_blank" rel="noopener">WhatsApp <span class="ico ico-ur"></span></a></div>
   <div><h3>Antes de pedir</h3><p>Estilos deportivos y urbanos para combinar a tu manera.</p><p>Confirmamos talla, disponibilidad y envío por WhatsApp antes de pagar.</p></div>
-</div><div class="ad-copyright"><div>© 2026 Adelanta’o al Tiempo</div><span>UN PASO ADELANTE.</span></div></div></footer>
+</div><div class="at-copyright"><div>© 2026 Adelanta’o al Tiempo</div><span>UN PASO ADELANTE.</span></div></div></footer>
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
@@ -97,13 +97,13 @@ class Component extends DCLogic {
       this.car = car;
       this.sync();
       this.onEvt = () => this.sync();
-      window.addEventListener("ad-legacy-carrito", this.onEvt);
+      window.addEventListener("at-legacy-carrito", this.onEvt);
       window.addEventListener("storage", this.onEvt);
       window.addEventListener("pageshow", this.onEvt);
     });
   }
   componentWillUnmount() {
-    if (this.onEvt) window.removeEventListener("ad-legacy-carrito", this.onEvt);
+    if (this.onEvt) window.removeEventListener("at-legacy-carrito", this.onEvt);
     if (this.onEvt) window.removeEventListener("storage", this.onEvt);
     if (this.onEvt) window.removeEventListener("pageshow", this.onEvt);
   }
