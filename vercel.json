@@ -1,0 +1,60 @@
+{
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/adelantao-inicio.dc.html"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/Adelantao%20al%20Tiempo.dc.html",
+      "destination": "/adelantao-inicio.dc.html",
+      "permanent": true
+    },
+    {
+      "source": "/Zapatos.dc.html",
+      "destination": "/adelantao-zapatos.dc.html",
+      "permanent": true
+    },
+    {
+      "source": "/Producto.dc.html",
+      "destination": "/adelantao-producto.dc.html",
+      "permanent": true
+    },
+    {
+      "source": "/Carrito.dc.html",
+      "destination": "/adelantao-carrito.dc.html",
+      "permanent": true
+    },
+    {
+      "source": "/Jose%20Store.dc.html",
+      "destination": "/adelantao-inicio.dc.html",
+      "permanent": true
+    },
+    {
+      "source": "/Camisetas.dc.html",
+      "destination": "/adelantao-zapatos.dc.html",
+      "permanent": true
+    },
+    {
+      "source": "/Chanclas.dc.html",
+      "destination": "/adelantao-chancletas.dc.html",
+      "permanent": true
+    },
+    {
+      "source": "/Pantalones.dc.html",
+      "destination": "/adelantao-zapatos.dc.html",
+      "permanent": true
+    },
+    {
+      "source": "/Relojes.dc.html",
+      "destination": "/adelantao-zapatos.dc.html",
+      "permanent": true
+    },
+    {
+      "source": "/Ropa.dc.html",
+      "destination": "/adelantao-zapatos.dc.html",
+      "permanent": true
+    }
+  ]
+}

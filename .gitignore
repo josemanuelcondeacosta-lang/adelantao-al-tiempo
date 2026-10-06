@@ -1,0 +1,19 @@
+.vercel
+.env*
+uploads/
+.audit-browser/
+
+# Privado: costos y asignación de precios
+LIBRO DE COSTOS.xlsx
+adelantao-costos.xlsx
+adelantao-costos.json
+asignacion-precios.json
+asignacion-chancletas.json
+precios-referencia.json
+REVISION-PRECIOS.md
+scripts/
+
+# Imágenes PNG originales (la página usa las .webp)
+*.png
+!favicon/*.png
+.thumbnail

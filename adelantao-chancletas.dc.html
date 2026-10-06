@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Adelanta’o al Tiempo | Chancletas</title>
+<meta name="description" content="Adelanta’o al Tiempo. Chancletas cómodas y con estilo. Elige tu talla y prepara tu pedido por WhatsApp.">
+<link rel="icon" type="image/jpeg" href="assets/logo-adelantao.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="adelantao-tienda.css">
+<script src="./support.js"></script>
+<script src="adelantao-ui.js" defer></script>
+</head>
+<body>
+<x-dc>
+<helmet><link rel="stylesheet" href="adelantao-tienda.css"></helmet>
+<div class="ad-announcement">Envíos a toda Colombia <span>✦</span> El tiempo es dinero</div>
+<header class="ad-header"><div class="wrap ad-header-in">
+  <a class="ad-brand" href="adelantao-inicio.dc.html" aria-label="Adelanta’o al Tiempo, inicio"><img src="assets/logo-adelantao.jpeg" alt="" width="52" height="52"><span>ADELANTA’O<small>AL TIEMPO</small></span></a>
+  <nav aria-label="Navegación principal"><a href="adelantao-inicio.dc.html">Inicio</a><a href="adelantao-zapatos.dc.html">Zapatos</a><a href="adelantao-chancletas.dc.html" aria-current="page">Chancletas</a></nav>
+  <a class="ad-cart" href="adelantao-carrito.dc.html" aria-label="Mi pedido"><span class="ad-cart-label">Mi pedido</span><span class="ad-cart-count" data-cart-count></span></a>
+</div></header>
+<main>
+<section class="ad-pagehead"><div class="wrap">
+  <nav class="ad-crumbs" aria-label="Ruta"><a href="adelantao-inicio.dc.html">Inicio</a><span class="sep">/</span><span>Chancletas</span></nav>
+  <div class="ad-pagehead-row">
+    <div><h1>Comodidad para<br><em>cada paso.</em></h1><div class="ad-pagehead-meta"><span class="ad-pill"><b>{{ count }}</b> modelos</span><span class="ad-pill">Tallas 38 a 42</span><span class="ad-pill">Línea 1.1</span></div></div>
+    <p>Chancletas para tus días tranquilos. Elige la marca y el color que va contigo.</p>
+  </div>
+</div></section>
+
+<section id="catalogo"><div class="wrap">
+  <div class="ad-toolbar">
+    <div class="ad-chips" role="group" aria-label="Filtrar"><sc-for list="{{ chips }}" as="c" hint-placeholder-count="6"><button type="button" class="{{ c.cls }}" onClick="{{ c.go }}" aria-pressed="{{ c.on }}">{{ c.label }}</button></sc-for></div>
+    <div class="ad-tools">
+      <label class="ad-field"><span class="sr-only">Buscar modelo</span><span class="ico ico-search"></span><input id="ad-q" type="search" placeholder="Buscar modelo" autocomplete="off" onInput="{{ buscar }}"></label>
+      <label class="ad-field"><span class="sr-only">Ordenar</span><select onChange="{{ ordenar }}"><option value="rel">Ordenar: destacados</option><option value="menor">Precio: menor a mayor</option><option value="mayor">Precio: mayor a menor</option></select><span class="ico ico-down"></span></label>
+    </div>
+  </div>
+  <p class="ad-result" role="status">{{ resultado }}</p>
+  <div class="ad-grid">
+    <sc-if value="{{ vacio }}" hint-placeholder-val="{{ false }}"><div class="ad-empty"><h3>No encontramos ese modelo</h3><p>Prueba con otra palabra o quita los filtros para ver todo el catálogo.</p><button type="button" class="ad-button" onClick="{{ limpiar }}">Ver todo el catálogo</button></div></sc-if>
+    <sc-for list="{{ shoes }}" as="p" hint-placeholder-count="8">
+      <a class="ad-product" href="{{ p.href }}">
+        <div class="ad-product-image">
+          <sc-if value="{{ p.media }}" hint-placeholder-val="{{ false }}">{{ p.media }}</sc-if>
+          <sc-if value="{{ p.noImg }}" hint-placeholder-val="{{ true }}"><span class="ad-noimg">FOTO CHANCLETA</span></sc-if>
+          <span class="ad-tag">Línea 1.1</span><span class="ad-product-go"><span class="ico ico-ur"></span></span>
+        </div>
+        <div class="ad-product-info"><h3>{{ p.name }}</h3><p class="ad-product-desc">{{ p.meta }}</p><div class="ad-product-foot"><span class="{{ p.priceCls }}">{{ p.price }}</span><span class="ad-product-sizes">{{ p.sizesLabel }}</span></div></div>
+      </a>
+    </sc-for>
+  </div>
+</div></section>
+
+<section class="ad-section"><div class="wrap"><div class="ad-cta"><div><h3>Pide tu talla por WhatsApp</h3><p>Dinos el modelo y la talla que necesitas. Confirmamos disponibilidad, precio final y valor del envío antes de pagar.</p></div><a class="ad-button ad-button-light" href="https://wa.me/message/QQ35ZM7DGCIPA1" target="_blank" rel="noopener"><span class="ico ico-chat ad-wa-ic"></span> Escribir por WhatsApp</a></div></div></section>
+</main>
+<footer class="ad-footer"><div class="wrap"><div class="ad-footer-in">
+  <div class="ad-footer-brand"><a class="ad-brand" href="adelantao-inicio.dc.html"><img src="assets/logo-adelantao.jpeg" alt="Logo Adelanta’o al Tiempo" width="64" height="64"><span>ADELANTA’O<small>AL TIEMPO</small></span></a><p>El tiempo es dinero.<br>El estilo se lleva en cada paso.</p></div>
+  <div class="ad-footer-links"><h3>Explora</h3><a href="adelantao-zapatos.dc.html">Zapatos</a><a href="adelantao-chancletas.dc.html">Chancletas</a><a href="adelantao-carrito.dc.html">Mi pedido</a><a href="https://wa.me/message/QQ35ZM7DGCIPA1" target="_blank" rel="noopener">WhatsApp <span class="ico ico-ur"></span></a></div>
+  <div><h3>Antes de pedir</h3><p>Estilos deportivos y urbanos para combinar a tu manera.</p><p>Confirmamos talla, disponibilidad y envío por WhatsApp antes de pagar.</p></div>
+</div><div class="ad-copyright"><div>© 2026 Adelanta’o al Tiempo</div><span>UN PASO ADELANTE.</span></div></div></footer>
+<a class="ad-fab" href="https://wa.me/message/QQ35ZM7DGCIPA1" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><span class="ico ico-chat"></span></a>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: 1440}}">
+class Component extends DCLogic {
+  state = { list: null, q: "", filtro: 0, orden: "rel" };
+  filtros = [
+    { label: "Todas", re: null },
+    { label: "Adidas", re: /^adidas/ },
+    { label: "Dior", re: /^dior/ },
+    { label: "Gucci", re: /^gucci/ },
+    { label: "Amiri", re: /^amiri/ },
+    { label: "Tommy Hilfiger", re: /^tommy/ },
+    { label: "Diesel", re: /^diesel/ }
+  ];
+  componentDidMount() {
+    import("./adelantao-listado.js").then(lst => {
+      this.lst = lst;
+      import("./adelantao-productos.js").then(cat => this.setState({ list: cat.chanclas || [] }));
+    });
+  }
+  renderVals() {
+    const list = this.state.list || [];
+    const lst = this.lst;
+    const shown = lst ? lst.filtrar(list, this.state, this.filtros) : [];
+    const cuentas = lst ? lst.contarFiltros(list, this.filtros) : [];
+    const activos = this.state.q.trim() || this.state.filtro > 0;
+    return {
+      count: list.length,
+      chips: this.filtros.map((f, i) => ({
+        label: f.label + (i > 0 && cuentas[i] !== undefined ? " · " + cuentas[i] : ""),
+        cls: "ad-chip" + (i === this.state.filtro ? " is-on" : ""),
+        on: i === this.state.filtro,
+        go: () => this.setState({ filtro: i })
+      })),
+      buscar: e => this.setState({ q: e.target.value }),
+      ordenar: e => this.setState({ orden: e.target.value }),
+      limpiar: () => {
+        const q = document.getElementById("ad-q"); if (q) q.value = "";
+        this.setState({ q: "", filtro: 0 });
+      },
+      resultado: this.state.list ? (activos
+        ? "Mostrando " + shown.length + " de " + list.length + " modelos"
+        : list.length + " modelos") : "Cargando modelos…",
+      vacio: !!this.state.list && shown.length === 0,
+      shoes: lst ? shown.map(p => lst.tarjeta(p, React)) : []
+    };
+  }
+}
+</script>
+</body>
+</html>

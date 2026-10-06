@@ -1,0 +1,13 @@
+*.png
+*.jpg
+*.jpeg
+!favicon/favicon.png
+uploads/*.mp4
+uploads/*.pdf
+uploads/*.xlsx
+.thumbnail
+
+adelantao-costos.xlsx
+!assets/logo-adelantao.jpeg
+.audit-browser/
+tests/
